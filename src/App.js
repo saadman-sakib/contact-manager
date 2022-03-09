@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
-import { getContacts } from "./helper.js";
+// import { getContacts } from "./helper.js";
 
 function App() {
     let [btn_class, setBtnClass] = useState("primary");
