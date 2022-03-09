@@ -7,9 +7,9 @@ function App() {
     let [btn_class, setBtnClass] = useState("primary");
     let [btn_text, setBtnText] = useState("Add Contact");
     let [form_on, setFormOn] = useState(false);
-    let [contact_list, setContactList] = useState(getContacts());
+    // let [contact_list, setContactList] = useState(getContacts());
 
-    contact_list=[
+    let contact_list=[
       {
         id: 1,
         name: "John Doe",
