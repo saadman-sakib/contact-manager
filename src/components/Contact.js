@@ -3,8 +3,16 @@ import {BsPen} from 'react-icons/bs';
 
 function Contact(props) {
 
-    const {contact} = props;
+    const {contact, editContact, deleteContact} = props;
 
+
+    const _editContact = () => {
+        editContact(contact);
+    }
+
+    const _deleteContact = () => {
+        deleteContact(contact._id);
+    }
 
     return (
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" >
@@ -12,14 +20,14 @@ function Contact(props) {
                 <h5 class="mb-1">{contact.name}</h5>
                 <div class="d-flex justify-content-center">
                     <small>
-                        <button type="button" class="btn btn-outline-dark m-1">
+                        <a onClick={_editContact} type="button" class="btn btn-outline-dark m-1">
                             <BsPen />
-                        </button>
+                        </a>
                     </small>
                         <small>
-                        <button type="button" class="btn btn-outline-danger m-1">
+                        <a onClick={_deleteContact} type="button" class="btn btn-outline-danger m-1">
                             <BsXSquare />
-                        </button>
+                        </a>
                     </small>
                 </div>
             </div>

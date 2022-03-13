@@ -1,46 +1,35 @@
-// get contacts
-const getContacts = () => {
-    let url = 'http://localhost:3000/contacts';
-    let contacts;
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            contacts = data.contacts;
-        })
-        .catch(err => console.log(err));
-    return contacts;
-};
 
+// get contacts
+const getContacts = async () => {
+    const res = await fetch(
+      "http://localhost:5001/contacts"
+    );
+
+    const data = await res.json();
+    console.log(data);
+    return data;
+}
 
 // add Contact
-const addContact = (contact) => {
-    let url = 'http://localhost:3000/contacts';
+const  addContact = async (contact) => {
+    let url = 'http://localhost:5001/contacts/new';
 
-    fetch(url, {
+    let res = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(contact)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+
+    let data = await res.json();
+    console.log(data);
+    return data;
 };
 
 // update contact
 const updateContact = (contact) => {
-    let url = `http://localhost:3000/contacts/${contact.id}`;
+    let url = `http://localhost:5001/contacts/${contact._id}`;
 
     fetch(url, {
         method: 'PUT',
@@ -57,7 +46,7 @@ const updateContact = (contact) => {
 
 // delete contact
 const deleteContact = (id) => {
-    let url = `http://localhost:3000/contacts/${id}`;
+    let url = `http://localhost:5001/contacts/delete/${id}`;
     fetch(url, {
         method: 'DELETE',
         headers: {

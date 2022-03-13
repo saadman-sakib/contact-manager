@@ -1,0 +1,9 @@
+.alert {
+    /* absolute center positioning */
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, 30%);
+    /* styling */
+    opacity: .85;
+}
