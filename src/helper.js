@@ -1,8 +1,11 @@
+const API_URL = 'https://reacto-contacto.herokuapp.com'
+
+
 
 // get contacts
 const getContacts = async () => {
     const res = await fetch(
-      "http://localhost:5001/contacts"
+      API_URL
     );
 
     const data = await res.json();
@@ -12,7 +15,7 @@ const getContacts = async () => {
 
 // add Contact
 const  addContact = async (contact) => {
-    let url = 'http://localhost:5001/contacts/new';
+    let url = API_URL + '/contacts/new';
 
     let res = await fetch(url, {
         method: 'POST',
@@ -29,7 +32,7 @@ const  addContact = async (contact) => {
 
 // update contact
 const updateContact = (contact) => {
-    let url = `http://localhost:5001/contacts/${contact._id}`;
+    let url = API_URL + `/contacts/${contact._id}`;
 
     fetch(url, {
         method: 'PUT',
@@ -46,7 +49,7 @@ const updateContact = (contact) => {
 
 // delete contact
 const deleteContact = (id) => {
-    let url = `http://localhost:5001/contacts/delete/${id}`;
+    let url = API_URL + `/contacts/delete/${id}`;
     fetch(url, {
         method: 'DELETE',
         headers: {
